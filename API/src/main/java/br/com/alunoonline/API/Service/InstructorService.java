@@ -16,7 +16,7 @@ public class InstructorService {
     @Autowired
     InstructorRepository instructorRepository;
 
-    public static void create(Instructor instructor) {
+    public void create(Instructor instructor) {
         instructorRepository.save(instructor);
     }
 
