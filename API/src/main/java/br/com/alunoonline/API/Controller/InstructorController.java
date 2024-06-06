@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("Instructor")
+@RequestMapping("/instructor")
 public class InstructorController {
 
     @Autowired
@@ -19,8 +19,8 @@ public class InstructorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create (@RequestBody Instructor instructor){
-        InstructorService.create(instructor);
+    public void create(@RequestBody Instructor instructor){
+        instructorService.create(instructor);
     }
 
     @GetMapping("/all")

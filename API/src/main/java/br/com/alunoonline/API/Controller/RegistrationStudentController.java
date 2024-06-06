@@ -1,5 +1,6 @@
 package br.com.alunoonline.API.Controller;
 
+import br.com.alunoonline.API.Dtos.HistoricoStudentResponse;
 import br.com.alunoonline.API.Dtos.UpdatesGradesRequest;
 import br.com.alunoonline.API.Model.RegistrationStudent;
 import br.com.alunoonline.API.Service.RegistrationStudentService;
@@ -32,5 +33,12 @@ public class RegistrationStudentController {
 
     public void updateStatusToBreak (@PathVariable Long registrationStudentId){
         registrationStudentService.updateStatusToBreak(registrationStudentId);
+    }
+
+    @GetMapping("/academic-trasncript/{student_id}")
+    @ResponseStatus(HttpStatus.OK)
+
+    public HistoricoStudentResponse getAcademicTranscript(@PathVariable Long studentId){
+        return registrationStudentService.getAcademicTranscript(studentId);
     }
 }

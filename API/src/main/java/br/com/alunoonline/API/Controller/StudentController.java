@@ -25,8 +25,7 @@ public class StudentController {
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public List<Student> findAll(){
-        studentService.findAll();
-    }
+        return studentService.findAll(); }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

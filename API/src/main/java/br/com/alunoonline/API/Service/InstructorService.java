@@ -5,6 +5,7 @@ import br.com.alunoonline.API.Repository.InstructorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class InstructorService {
     @Autowired
     InstructorRepository instructorRepository;
 
-    public static void create(Instructor instructor) {
+    public void create( Instructor instructor) {
         instructorRepository.save(instructor);
     }
 

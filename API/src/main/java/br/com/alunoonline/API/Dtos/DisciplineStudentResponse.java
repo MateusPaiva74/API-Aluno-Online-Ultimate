@@ -7,7 +7,9 @@ import lombok.Data;
 public class DisciplineStudentResponse {
 
     private String disciplineName;
+    private String instructorName;
     private Double grade1;
     private Double grade2;
+    private Double average;
     private RegistrationStudentStatusEnum status;
 }
