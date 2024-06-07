@@ -9,6 +9,5 @@ import java.util.List;
 
 @Repository
 public interface RegistrationStudentRepository extends JpaRepository<RegistrationStudent, Long> {
-    @Query("SELECT * FROM Registration * WHERE * studentId")
     List<RegistrationStudent> findByStudentId (Long studentId);
 }

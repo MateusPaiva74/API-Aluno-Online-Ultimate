@@ -25,13 +25,13 @@ public class RegistrationStudentService {
     RegistrationStudentRepository registrationStudentRepository;
 
     public void create (RegistrationStudent registrationStudent){
-
         registrationStudent.setStatus(RegistrationStudentStatusEnum.MATRICULADO);
         registrationStudentRepository.save(registrationStudent);
     }
     public void updateGrades(Long registrationStudentId, UpdatesGradesRequest updatesGradesRequest){
-
-        RegistrationStudent registrationStudent = registrationStudentRepository.findById(registrationStudentId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Matricula nao encontrada"));
+        RegistrationStudent registrationStudent =
+                registrationStudentRepository.findById(registrationStudentId)
+                        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Matricula nao encontrada"));
         updateStudentGrades(registrationStudent, updatesGradesRequest);
         updatesStudentStatus(registrationStudent);
 

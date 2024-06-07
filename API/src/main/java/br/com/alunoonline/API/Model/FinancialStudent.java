@@ -1,6 +1,6 @@
 package br.com.alunoonline.API.Model;
 
-import br.com.alunoonline.API.Enums.RegistrationStudentStatusEnum;
+import br.com.alunoonline.API.Enums.FinancialStatusEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,27 +10,23 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
+@Data
 
-public class RegistrationStudent implements Serializable {
+public class FinancialStudent implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double grade1;
-
-    private Double grade2;
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "student_id")
     private Student student;
 
-    @ManyToOne
-    @JoinColumn(name = "discipline_id")
-    private Discipline discipline;
+    private Double discount;
+
+    private Integer dueDate;
 
     @Enumerated(EnumType.STRING)
-    private RegistrationStudentStatusEnum status;
+    private FinancialStatusEnum status;
 }
